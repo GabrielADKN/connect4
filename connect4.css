@@ -1,12 +1,70 @@
-/* game board table */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
+/* Improve title and labels */
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: goldenrod;
+}
+
+label {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  display: block;
+}
+
+button {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Improve selection layout */
+.selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label,
+.color-input {
+  margin-right: 20px;
+  color: #333;
+}
+
+.color-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100px;
+}
+
+/* Game board table */
 #board td {
   width: 50px;
   height: 50px;
   border: solid 1px #666;
+  margin: 2px;
 }
-
-/* pieces are div within game table cells: draw as colored circles */
 
 .piece {
   margin: 5px;
@@ -14,16 +72,15 @@
   height: 80%;
   border-radius: 50%;
 }
-
-/* .piece.p1 {
+.piece.p1 {
   background-color: red;
+  background-color: var(--player1-color);
 }
 
 .piece.p2 {
   background-color: blue;
-} */
-
-/* column-top is table row of clickable areas for each column */
+  background-color: var(--player2-color);
+}
 
 #column-top td {
   border: dashed 1px lightgray;
@@ -31,4 +88,17 @@
 
 #column-top td:hover {
   background-color: gold;
+}
+
+:root {
+  --player1-color: red;
+  --player2-color: blue;
+}
+
+/* Optional: Add media queries for responsiveness */
+@media (max-width: 768px) {
+  #board td {
+    width: 30px;
+    height: 30px;
+  }
 }
